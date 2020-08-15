@@ -1,1 +1,2 @@
-# DikiMonyet
+# Diki Monyet Kontol
+# Anak Gampang
