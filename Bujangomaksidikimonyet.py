@@ -32,9 +32,9 @@ logo = """\x1b[1;91m╭╮╮╱▔▔▔▔╲╭╭╮╔═══╦═══
 \x1b[1;92m╭╱╱▕╋╋╋╋▏╲╲╮║╚═╝║╚═╝║║║╚╣╚═╝║║─║║║╔═╗║╭╱╱▕╋╋╋╋▏╲╲╮
 ╰╯╯┈╲▂▂╱┈╰╰╯╚═══╩═══╩╝╚═╩═══╩╝─╚═╩╝─╚╝╰╯╯┈╲▂▂╱┈╰╰╯
 \x1b[1;97m╔════════════════════════════════════════════════╗
-\x1b[1;97m║ \x1b[1;93m* \x1b[1;97mAuthor  \x1b[1;91m:\x1b[1;96m Diki Monyet Kontol ID\x1b[1;97m            ║
-\x1b[1;97m║ \x1b[1;93m* \x1b[1;97mGitHub  \x1b[1;91m: \x1b[1;96mhttps://github.com/Ajgtajopit\x1b[1;97m       ║
-\x1b[1;97m║ \x1b[1;93m* \x1b[1;97mYoutube \x1b[1;91m: \x1b[1;96mDiki Monyet \x1b[1;97m                          ║
+\x1b[1;97m║ \x1b[1;93m* \x1b[1;97mAuthor  \x1b[1;91m:\x1b[1;96m Diki Monyet Kontol ID\x1b[1;97m              ║
+\x1b[1;97m║ \x1b[1;93m* \x1b[1;97mGitHub  \x1b[1;91m: \x1b[1;96mhttps://github.com/Ajgtajopit\x1b[1;97m      ║
+\x1b[1;97m║ \x1b[1;93m* \x1b[1;97mYoutube \x1b[1;91m: \x1b[1;96mDiki Monyet \x1b[1;97m                       ║
 \x1b[1;97m╚════════════════════════════════════════════════╝"""
  
  
